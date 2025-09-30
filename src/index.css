@@ -1,0 +1,35 @@
+body {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+@font-face {
+  font-family: "Avenir Next LT Pro Bold"; /* Name you'll use in your CSS */
+  src: url("/src/assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"),
+    url("/src/assets/fonts/AvenirNextLTPro-Bold.woff") format("woff"),
+    url("/src/assets/fonts/AvenirNextLTPro-Bold.ttf") format("truetype");
+  font-weight: bold; /* Match the font's weight */
+  font-style: normal;
+  font-display: swap; /* Recommended for better performance and user experience */
+}
+@font-face {
+  font-family: "Buenos Aires Trial"; /* This is the name you'll use in your CSS */
+  src: url("/src/assets/fonts/BuenosAiresTrial/BuenosAires-RegularTrial.woff2")
+      format("woff2"),
+    url("/src/assets/fonts/BuenosAiresTrial/BuenosAires-RegularTrial.woff")
+      format("woff");
+  font-weight: normal; /* Adjust based on the actual weight of the font file */
+  font-style: normal;
+  font-display: swap; /* Improves loading experience */
+}
+
+@font-face {
+  font-family: "Buenos Aires Trial"; /* Same family name, different weight */
+  src: url("/src/assets/fonts/BuenosAiresTrial/BuenosAires-BoldTrial.woff2")
+      format("woff2"),
+    url("/src/assets/fonts/BuenosAiresTrial/BuenosAires-BoldTrial.woff")
+      format("woff");
+  font-weight: bold; /* Adjust based on the actual weight of the font file */
+  font-style: normal;
+  font-display: swap;
+}
