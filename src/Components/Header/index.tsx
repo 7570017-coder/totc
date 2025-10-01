@@ -82,7 +82,7 @@ const Header = () => {
         </HamburgerButton>
 
         <NavLinks isOpen={isMenuOpen}>
-          <li onClick={() => handleNavClick("/")}>Home</li>
+          <li onClick={() => handleNavClick("/")}>Homepage</li>
           <li onClick={() => handleNavClick("/Course")}>Courses</li>
           <li onClick={() => handleNavClick("/MemberShip")}>Careers</li>
           <li onClick={() => handleNavClick("/Blog")}>Blog</li>
