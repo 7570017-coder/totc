@@ -325,7 +325,7 @@ const CoursePage: React.FC = () => {
                     border: "1px solid #ddd",
                     borderRadius: "8px",
                     marginTop: "10px",
-                    fontSize: "16px", // Changed from 14px to 16px
+                    fontSize: "16px",
                     width: "100%",
                     boxSizing: "border-box",
                   }}
