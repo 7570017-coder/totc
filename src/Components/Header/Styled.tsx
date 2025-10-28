@@ -1,4 +1,3 @@
-// Styled.tsx
 import styled from "styled-components";
 
 export const NavBar = styled.nav`
@@ -149,7 +148,9 @@ export const ButtonGroup = styled.div<{ isOpen: boolean }>`
     visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
     transform: ${({ isOpen }) =>
       isOpen ? "translateY(0)" : "translateY(20px)"};
-    transition: all 0.3s ease-in-out 0.4s;
+    transition: all 0.3s ease-in-out;
+    transition-delay: ${({ isOpen }) =>
+      isOpen ? "0.4s" : "0s"}; // Changed this line
     z-index: 1001;
   }
 `;
@@ -279,5 +280,105 @@ export const MobileMenuContainer = styled.div<{ isOpen: boolean }>`
       -webkit-overflow-scrolling: none;
       overflow: hidden;
     `}
+  }
+`;
+
+export const UserInfo = styled.div<{ isOpen: boolean }>`
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  z-index: 1003;
+
+  @media (max-width: 1380px) {
+    gap: 15px; // Reduce gap to save space
+  }
+
+  @media (max-width: 1200px) {
+    gap: 15px;
+  }
+
+  @media (max-width: 1023px) {
+    position: fixed;
+    bottom: 120px;
+    left: 0;
+    width: 100%;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    opacity: ${({ isOpen }) => (isOpen ? "1" : "0")};
+    visibility: ${({ isOpen }) => (isOpen ? "visible" : "hidden")};
+    transform: ${({ isOpen }) =>
+      isOpen ? "translateY(0)" : "translateY(20px)"};
+    transition: all 0.3s ease-in-out;
+    transition-delay: ${({ isOpen }) => (isOpen ? "0.4s" : "0s")};
+    z-index: 1001;
+  }
+`;
+
+export const UserName = styled.span`
+  font-family: "Avenir Next LT Pro Bold", sans-serif;
+  color: #fff;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  white-space: nowrap;
+
+  @media (max-width: 1380px) {
+    font-size: 18px; // Slightly smaller font
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 18px;
+  }
+
+  @media (max-width: 1023px) {
+    font-size: 20px;
+    color: #fff;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 18px;
+  }
+`;
+
+export const LogoutButton = styled.button`
+  padding: 14px 40px;
+  border-radius: 80px;
+  font-family: "Avenir Next LT Pro Bold", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 20px 24px 0 rgba(0, 0, 0, 0.03);
+  background: #e74c3c;
+  color: white;
+  white-space: nowrap; // Prevent text wrapping
+
+  &:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 1380px) {
+    padding: 12px 25px; // Reduce padding for medium screens
+    font-size: 18px; // Slightly smaller font
+  }
+
+  @media (max-width: 1200px) {
+    padding: 12px 25px;
+    font-size: 18px;
+  }
+
+  @media (max-width: 1023px) {
+    padding: 15px 35px;
+    font-size: 20px;
+    width: auto;
+    max-width: 200px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 12px 25px;
+    font-size: 16px;
   }
 `;

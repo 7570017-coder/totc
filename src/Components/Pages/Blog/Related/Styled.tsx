@@ -90,7 +90,6 @@ export const Card = styled.div`
   padding: 30px 20px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 18.83px 47.08px 0 rgba(47, 50, 125, 0.1);
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease;
@@ -263,6 +262,9 @@ export const PageButton = styled.button`
   cursor: pointer;
   font-size: 12px;
   transition: background 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background: #3aa3a5;

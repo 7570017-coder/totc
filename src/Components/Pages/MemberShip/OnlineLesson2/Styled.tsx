@@ -67,12 +67,22 @@ export const LessonHeader = styled.div`
   font-weight: 400;
   line-height: 32px;
   padding: 15px 0;
-  transition: background-color 0.2s ease;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px 10px;
+  }
 
   @media (max-width: 768px) {
     font-size: 16px;
     line-height: 28px;
     padding: 12px 0;
+
+    &:hover {
+      padding: 12px 8px;
+    }
   }
 
   @media (max-width: 480px) {
@@ -81,7 +91,7 @@ export const LessonHeader = styled.div`
     padding: 10px 0;
 
     &:hover {
-      padding: 10px 8px;
+      padding: 10px 6px;
     }
   }
 `;
@@ -101,12 +111,14 @@ export const LessonIcon = styled.span`
   }
 `;
 
-export const LessonArrow = styled.span`
+export const LessonArrow = styled.span<{ isopen: boolean }>`
   margin-left: auto;
   color: #6b7280;
   font-size: 14px;
   min-width: 20px;
   text-align: center;
+  transition: transform 0.3s ease;
+  transform: ${({ isopen }) => (isopen ? "rotate(180deg)" : "rotate(0deg)")};
 
   @media (max-width: 480px) {
     font-size: 12px;
@@ -114,8 +126,7 @@ export const LessonArrow = styled.span`
   }
 `;
 
-export const LessonDesc = styled.p`
-  margin-top: 12px;
+export const LessonDesc = styled.div<{ isopen: boolean }>`
   color: #696984;
   font-family: "avenir next lt pro bold", sans-serif;
   font-size: 14px;
@@ -124,29 +135,23 @@ export const LessonDesc = styled.p`
   line-height: 160%;
   letter-spacing: 0.28px;
   padding: 0 10px;
-  animation: fadeIn 0.3s ease;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease, margin-top 0.3s ease;
 
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
+  max-height: ${({ isopen }) => (isopen ? "1000px" : "0")};
+  opacity: ${({ isopen }) => (isopen ? "1" : "0")};
+  margin-top: ${({ isopen }) => (isopen ? "12px" : "0")};
 
   @media (max-width: 768px) {
     font-size: 13px;
     line-height: 150%;
-    margin-top: 10px;
+    margin-top: ${({ isopen }) => (isopen ? "10px" : "0")};
   }
 
   @media (max-width: 480px) {
     font-size: 12px;
     line-height: 140%;
-    margin-top: 8px;
     padding: 0 5px;
+    margin-top: ${({ isopen }) => (isopen ? "8px" : "0")};
   }
 `;
