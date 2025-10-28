@@ -34,8 +34,21 @@ const Hero = () => {
           </button>
 
           <button className="secondary">
-            <FaPlayCircle />
-            Watch how it works
+            <a
+              href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="secondary"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 4,
+                textDecoration: "none",
+              }}
+            >
+              <FaPlayCircle />
+              Watch how it works
+            </a>
           </button>
         </HeroButtons>
       </HeroContent>

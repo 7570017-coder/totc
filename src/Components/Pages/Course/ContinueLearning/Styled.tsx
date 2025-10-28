@@ -4,6 +4,18 @@ export const Section = styled.section`
   background: #9dccff33;
   border-radius: 12px;
   padding: 70px 180px;
+  position: relative;
+
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    height: auto;
+  }
 
   @media (max-width: 1200px) {
     padding: 50px 100px;
@@ -72,22 +84,6 @@ export const HeaderRow = styled.div`
   }
 `;
 
-export const CardsRow = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-  }
-
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-`;
-
 export const Card = styled.div`
   background: #fff;
   border-radius: 12px;
@@ -96,6 +92,7 @@ export const Card = styled.div`
   display: flex;
   flex-direction: column;
   transition: transform 0.3s ease;
+  height: 100%;
 
   &:hover {
     transform: translateY(-3px);
@@ -124,6 +121,7 @@ export const CardBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 12px;
+  flex-grow: 1;
 `;
 
 export const Title = styled.h3`
@@ -164,7 +162,7 @@ export const AuthorRow = styled.div`
 `;
 
 export const ProgressRow = styled.div`
-  margin-top: 8px;
+  margin-top: auto;
 `;
 
 export const ProgressOuter = styled.div`
@@ -216,11 +214,15 @@ export const PageButton = styled.button`
   font-family: "avenir next lt pro bold", sans-serif;
   border: none;
   border-radius: 6px;
-  padding: 10px 15px;
+  padding: 12px 15px;
   cursor: pointer;
+  padding-top: 15px;
   font-size: 16px;
   transition: background 0.2s ease;
   min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     background: #3aa3a5;

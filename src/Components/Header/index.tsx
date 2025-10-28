@@ -8,12 +8,17 @@ import {
   HamburgerButton,
   Overlay,
   MobileMenuContainer,
+  UserInfo,
+  UserName,
+  LogoutButton,
 } from "./Styled";
 import Logo from "/Logo.png";
 import { useNavigate } from "react-router";
+import { useAuth } from "../../contexts/AuthContext";
 
 const Header = () => {
   const nav = useNavigate();
+  const { user, logout } = useAuth();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -45,13 +50,19 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
-  const navigate = () => {
+  const handleLogin = () => {
     nav("/login");
     setIsMenuOpen(false);
   };
 
-  const handleSignIn = () => {
+  const handleSignUp = () => {
     nav("/register");
+    setIsMenuOpen(false);
+  };
+
+  const handleLogout = () => {
+    logout();
+    nav("/");
     setIsMenuOpen(false);
   };
 
@@ -89,20 +100,27 @@ const Header = () => {
           <li onClick={() => handleNavClick("/CalendarsPage")}>Calendars</li>
         </NavLinks>
 
-        <ButtonGroup isOpen={isMenuOpen}>
-          <Button onClick={navigate} className="login">
-            Login
-          </Button>
-          <Button onClick={handleSignIn} className="sign-up">
-            Sign up
-          </Button>
-        </ButtonGroup>
+        {user ? (
+          // Logged-in state
+          <UserInfo isOpen={isMenuOpen}>
+            <UserName>Welcome, {user?.username || user?.name}!</UserName>
+            <LogoutButton onClick={handleLogout}>Logout</LogoutButton>
+          </UserInfo>
+        ) : (
+          // Logged-out state
+          <ButtonGroup isOpen={isMenuOpen}>
+            <Button onClick={handleLogin} className="login">
+              Login
+            </Button>
+            <Button onClick={handleSignUp} className="sign-up">
+              Sign up
+            </Button>
+          </ButtonGroup>
+        )}
       </NavBar>
 
-      {/* Overlay for mobile menu */}
       <Overlay isOpen={isMenuOpen} onClick={toggleMenu} />
 
-      {/* Mobile menu container with touch prevention */}
       <MobileMenuContainer isOpen={isMenuOpen} />
     </>
   );

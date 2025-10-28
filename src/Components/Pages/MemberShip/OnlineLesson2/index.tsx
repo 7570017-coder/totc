@@ -9,7 +9,7 @@ import {
   LessonArrow,
   LessonDesc,
 } from "./Styled";
-import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 
 const lessons = [
   { title: "Lorem ipsum dolor sit amet" },
@@ -35,25 +35,22 @@ const OnlineLesson2: React.FC = () => {
             <LessonHeader onClick={() => toggleLesson(index)}>
               <LessonIcon />
               <span>{lesson.title}</span>
-              <LessonArrow>
-                {openIndex === index ? <FaChevronUp /> : <FaChevronDown />}
+              <LessonArrow isopen={openIndex === index}>
+                <FaChevronDown />
               </LessonArrow>
             </LessonHeader>
-            {openIndex === index && (
-              <LessonDesc>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempos Lorem ipsum dolor sitamet, consectetur adipiscing
-                elit, sed do eiusmod temporLorem ipsum dolor sit amet,
-                consectetur adipiscing elit, sed do eiusmod tempos Lorem ipsum
-                dolor sitamet, consectetur adipiscing elit, sed do eiusmod
-                temporLorem ipsum dolor sit amet, consectetur adipiscing elit,
-                sed do eiusmod tempos Lorem ipsum dolor sitamet, consectetur
-                adipiscing elit, sed do eiusmod temporLorem ipsum dolor sit
-                amet, consectetur adipiscing elit, sed do eiusmod tempos Lorem
-                ipsum dolor sitamet, consectetur adipiscing elit, sed do eiusmod
-                tempor
-              </LessonDesc>
-            )}
+            <LessonDesc isopen={openIndex === index}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempos Lorem ipsum dolor sitamet, consectetur adipiscing
+              elit, sed do eiusmod temporLorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempos Lorem ipsum dolor sitamet,
+              consectetur adipiscing elit, sed do eiusmod temporLorem ipsum
+              dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempos
+              Lorem ipsum dolor sitamet, consectetur adipiscing elit, sed do
+              eiusmod temporLorem ipsum dolor sit amet, consectetur adipiscing
+              elit, sed do eiusmod tempos Lorem ipsum dolor sitamet, consectetur
+              adipiscing elit, sed do eiusmod tempor
+            </LessonDesc>
           </LessonItem>
         ))}
       </LessonList>

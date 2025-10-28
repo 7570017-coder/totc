@@ -92,7 +92,6 @@ export const Card = styled.div`
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
 
   @media (max-width: 768px) {
@@ -166,11 +165,15 @@ export const Text = styled.p`
   }
 `;
 
-export const ArrowButton = styled.button<{ side: "left" | "right" }>`
+export const ArrowButton = styled.button.attrs<{ side: "left" | "right" }>(
+  (props) => ({
+    as: "button",
+  })
+)<{ side: "left" | "right" }>`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  ${(p) => (p.side === "left" ? "left: -10px;" : "right: -10px;")}
+  ${(p) => (p.side === "left" ? "left: -60px;" : "right: -60px;")}
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -202,7 +205,7 @@ export const ArrowButton = styled.button<{ side: "left" | "right" }>`
   @media (max-width: 768px) {
     width: 35px;
     height: 35px;
-    ${(p) => (p.side === "left" ? "left: -15px;" : "right: -15px;")}
+    ${(p) => (p.side === "left" ? "left: -50px;" : "right: -50px;")}
 
     svg {
       width: 18px;

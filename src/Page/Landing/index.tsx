@@ -8,7 +8,7 @@ import Course from "../../Components/Pages/Landing/Course";
 import Testimonial from "../../Components/Pages/Landing/Testimonial";
 import News from "../../Components/Pages/Landing/News";
 
-const Landing = () => {
+const Landing: React.FC = () => {
   return (
     <div>
       <HeroSection />
